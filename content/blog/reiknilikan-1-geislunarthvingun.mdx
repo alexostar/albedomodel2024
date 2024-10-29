@@ -1,0 +1,78 @@
+---
+title: Geislunarþvingun
+description: Carbon-equivalent metrics for albedo changes — Part 1
+date: 2024-10-28
+tags: [Albedo, Model]
+published: true
+---
+
+Source:
+[Ryan M. Bright et.al. 2016: Carbon-equivalent metrics for albedo changes in land management contexts: relevance of the time dimension](https://esajournals.onlinelibrary.wiley.com/doi/10.1890/15-1597.1)
+
+Data source: [Veðurstövar og snjóþekja](https://kolefnisvaktin.natturuvinir.is/stations-rawdata).
+Gögn frá Veðurstofu Íslands (tafla "stations2" í gagnagrunni Kolefnisvaktinnar)
+
+## Radiative forcing from albedo changes: Equation 6
+
+<img
+  src='https://hlkyrtglhpmrhzudaqzu.supabase.co/storage/v1/object/public/vin2024/albedo_rf_equation.png'
+  alt='Equation 6'
+  width='300'
+/>
+
+### Documentation of code in file app/stations-rf-calc/page.tsx
+
+- **rf:** The annual mean radiative forcing at (annual) time step t (in W/m2)
+- **rsw:** Climatological (1983–2007) monthly mean solar radiation incident on a topographically corrected tilted surface in monthly time step m (in W/m2).
+  _Here initially calculated for horizontal using monthly average data for Reykjavík_:
+  **[5, 24, 68, 125, 182, 197, 182, 141, 79, 36, 9, 2]**
+- **∆a:** Mean albedo change in month m and annual time step t (unitless)
+- **tsw:** Factor that relates the albedo change at the surface to that at the TOA in month m: **0.854** _See further explanation below_
+- **earthm2**: Size of the Earth in m2 (**5.1e14**)
+
+Function to calucate the monthly albedo change (snowCoverPercentage data from the "stations2" table), in the example when the albedo difference is 0.55 when land is snowcovered and otherwise 0.06
+
+```js
+const deltaAlbedo = (snowCoverPercentage: number): number => {
+  return (
+    (0.55 * snowCoverPercentage + 0.06 * (100 - snowCoverPercentage)) / 100
+  );
+};
+```
+
+Function to calculate monthly station values for ∆a times rsw, the average for all months and the resulting rf (Geislunarþvingun)
+
+```js
+const tsw = 0.854;
+const earthm2 = 5.1e14;
+const rsw = [5, 24, 68, 125, 182, 197, 182, 141, 79, 36, 9, 2];
+
+const monthlyStationValues = stations2.map((station) => {
+  const albedoTimesRsw = {
+    jan: deltaAlbedo(station.jan) * rsw[0],
+    feb: deltaAlbedo(station.feb) * rsw[1],
+    mar: deltaAlbedo(station.mar) * rsw[2],
+    apr: deltaAlbedo(station.apr) * rsw[3],
+    may: deltaAlbedo(station.may) * rsw[4],
+    jun: deltaAlbedo(station.jun) * rsw[5],
+    jul: deltaAlbedo(station.jul) * rsw[6],
+    aug: deltaAlbedo(station.aug) * rsw[7],
+    sep: deltaAlbedo(station.sep) * rsw[8],
+    oct: deltaAlbedo(station.oct) * rsw[9],
+    nov: deltaAlbedo(station.nov) * rsw[10],
+    dec: deltaAlbedo(station.dec) * rsw[11],
+  };
+
+  const averageAlbedoTimesRsw =
+    Object.values(albedoTimesRsw).reduce((sum, value) => sum + value, 0) / 12;
+
+  const rf = (averageAlbedoTimesRsw * tsw) / earthm2;
+
+  return {
+    ...station,
+    albedoTimesRsw,
+    averageAlbedoTimesRsw,
+    rf,
+  };
+});
+```

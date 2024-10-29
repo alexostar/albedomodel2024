@@ -1,0 +1,81 @@
+---
+title: CO2-ígildi endurskinsbreytinga
+description: Carbon-equivalent metrics for albedo changes — Part 3
+date: 2024-10-26
+tags: [Albedo, Model]
+published: true
+---
+
+Source:
+[Ryan M. Bright et.al. 2016: Carbon-equivalent metrics for albedo changes in land management contexts: relevance of the time dimension](https://esajournals.onlinelibrary.wiley.com/doi/10.1890/15-1597.1)
+
+Data source: [Veðurstövar og snjóþekja](https://kolefnisvaktin.natturuvinir.is/stations-rawdata).
+Gögn frá Veðurstofu Íslands (tafla "stations2" í gagnagrunni Kolefnisvaktarinnar)
+
+## CO2 equivalence: Equation 13
+
+<img
+  src='https://hlkyrtglhpmrhzudaqzu.supabase.co/storage/v1/object/public/vin2024/albedo_tdee_equation.png'
+  alt='Equation 13'
+  width='300'
+/>
+
+### Documentation of code in file app/stations-tdee-calc/page.tsx
+
+- **tdee:** time-dependent emissions equivalent (TDEE) from albedo changes, or TDEEΔα(t).
+- **kco2:** The radiative efficiency of CO2 in the atmosphere at a given background concentration (Myhre et al. 1998; in units W·m−2·kg−1). Here and elsewhere in this study: 1.76 × 10−15 W·m−2·kg−1
+- **yco2:** the inverse of the lower triangular matrix used to solve the system of linear equations, yco2 increasing in time across row elements and decreasing in time across column elements;
+- **rf:** Vector of radiative forcing (rf) values
+
+In this example, the lower triangular matrix has already been created. See separate file for the code used to create the matrix
+
+<img
+  src='https://hlkyrtglhpmrhzudaqzu.supabase.co/storage/v1/object/public/vin2024/IRF-Joos-2013.png'
+  alt='Joos et al IRF Equation 11'
+  width='400'
+/>
+
+```js
+useEffect(() => {
+  async function loadMatrix() {
+    try {
+      // Get the lower triangual matrix stored in a json file
+      const response = await fetch(
+        'https://hlkyrtglhpmrhzudaqzu.supabase.co/storage/v1/object/public/vin2024/New_Joos_100x100_matrix.json?t=2024-10-23T14%3A15%3A06.866Z'
+      );
+      const data = await response.json();
+      setMatrix100(data);
+
+      // Calculate the inverse of 100x100 matrix
+      const mathMatrix100 = matrix(data);
+      const inverse100 = inv(mathMatrix100);
+      setInverseMatrix100(inverse100);
+
+      // Create the RF-delta-alfa array, with first 25 elements as 0 and remaining 75 as 0.00000000000000167
+      const rfVector = [
+        ...Array(25).fill(0),
+        ...Array(75).fill(1.6745098039215687e-15), // The RF value for averageAlbedoTimesRsw = 1 W/m2
+      ];
+
+      // Multiply the inverse matrix with the rfAlbedoVector
+      const parenthesisResult = multiply(inverse100, rfVector);
+
+      // Final step in calucating TDEE - deviding with the constant kCO2
+      const kCO2 = 1.76e-15;
+      const tdeekgm2 = divide(parenthesisResult, kCO2);
+
+      const tdeekgm2sum = sum(tdeekgm2);
+      console.log('tdee-kg-m2-sum: ', tdeekgm2sum);
+
+      // Changing kg / m2 to tonn / ha
+      const tdeetonhasum = (Number(tdeekgm2sum) * 10000) / 1000;
+
+      console.log('tdee-ton-ha-sum: ', tdeetonhasum.toFixed(1));
+      // THE OUTCOME IS 19,9
+    } catch (error) {
+      console.error('Error loading or processing matrix:', error);
+    }
+  }
+  loadMatrix();
+}, []);
+```
