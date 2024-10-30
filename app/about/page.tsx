@@ -30,28 +30,29 @@ export default async function AboutPage() {
       </div>
       <hr className='my-8' />
       <div className='flex flex-col md:flex-row gap-8 items-center md:items-start'>
-        <div className='min-w-48 max-w-48 flex flex-col gap-2'>
-          <Avatar className='h-48 w-48'>
+        <div className='min-w-24 max-w-24 flex flex-col gap-2'>
+          <Avatar className='h-24 w-24'>
             <AvatarImage src='/avatar-sbj.jpg' alt={siteConfig.author} />
             <AvatarFallback>JC</AvatarFallback>
           </Avatar>
-          <h2 className='text-lg font-bold text-center break-words'>
+          <h2 className='text-sm font-senubold text-center break-words'>
             {siteConfig.author}
           </h2>
-          <p className='text-muted-foreground text-center break-words'>
-            Senior Developer
+        </div>
+        <div>
+          <p className='text-muted-foreground text-lg font-semibold'>
+            Design tests
+          </p>
+          <p className='text-muted-foreground text-lg'>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
           </p>
         </div>
-        <p className='text-muted-foreground text-lg py-4'>
-          Over a millennium ago, when humans first settled in Iceland, it is
-          estimated that birch forest and shrublands covered 20-40% of the land.
-          The Book of Icelanders paints a picture of a landscape covered with
-          wood from the mountains to the sea. The settlers burned woodlands to
-          establish grazing areas and to make charcoal for fuel. Over the
-          centuries vulnerable soils, sheep grazing, volcanic activities and
-          colder climate resulted in a more or less treeless land, vegetation
-          atrophy and eroded soils.
-        </p>
       </div>
     </div>
   );

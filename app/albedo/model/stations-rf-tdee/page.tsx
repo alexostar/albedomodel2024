@@ -85,33 +85,48 @@ export default async function StationsHome() {
 
   return (
     <div className='container mx-auto py-10 max-w-7xl'>
-      <h1 className='text-2xl font-bold mb-2 text-center'>
-        Radiative Forcing (RF) from albedo changes
+      <h1 className='text-2xl font-bold mb-6 text-center'>
+        Neikvæð loftslagsáhrif endurskinsbreytinga í kolefnisrækt með furu og
+        greni
       </h1>
-      <h2 className='text-lg text-center mb-2 '>
-        Monthly albedo effect on radiation (W/m2) based on albedo changes of
-        0.55 for snow-covered periods and 0.06 for snow-free periods
-      </h2>
-      <p className='text-lg text-center mb-6 '>
-        Calculations based on models by Ryan M. Bright et al, not including
-        corrections for slope, aspect and sky-view.
-      </p>
 
-      <p className='font-semibold'>
-        Average effect across months and stations: {overallAverage.toFixed(2)}{' '}
-        W/m2
+      <p className='mb-2'>
+        Taflan sýnir breytingu á mánaðarlegu endurkasti sólgeislunar (W/m2) á
+        177 veðurstöðvum við skógrækt með furu og greni. Fyrir hverja veðurstöð
+        er meðaltal allra mánaða reiknað og síðan hvaða áhrif það hefur á
+        geislunarþvingun (Radiative forcing, RF). Áhrifin á geislunarþvingun eru
+        svo umreiknuð í hitunarárhif endurskinsbreytinganna sem CO2 ígildi
+        (Time-Dependent Emissions Equivalent, TDEE).
+      </p>
+      <p>Útreikingar byggðir á:</p>
+      <a
+        href='https://esajournals.onlinelibrary.wiley.com/doi/10.1890/15-1597.1'
+        className='text-primary mb-4'>
+        Ryan M. Bright et. al. (2016) Carbon-equivalent metrics for albedo
+        changes in land management contexts: relevance of the time dimension{' '}
+      </a>
+      <p>Forsendur:</p>
+      <p className='mb-4'>
+        Munur á endurskinsstuðli (albedo) 0.55 fyrir snæviþakið land, annars
+        0.06.
       </p>
       <p className='font-semibold'>
-        Average RF: {formatScientificNotation(overallRF)}
+        Meðalbreyting á endurkasti fyrir allar veðurstöðvar:{' '}
+        {overallAverage.toFixed(2)} W/m2
       </p>
       <p className='font-semibold'>
-        Average TDEE: {overalTdee.toFixed(0)} ton CO2e/ha
+        Meðalbreyting á geislunarþvingun (RF):{' '}
+        {formatScientificNotation(overallRF)} W/m2
+      </p>
+      <p className='font-semibold'>
+        Meðal-hlýnunarárhif í CO2-ígildum (TDEE): {overalTdee.toFixed(0)} tonn
+        CO2í/ha
       </p>
       <div className='overflow-x-auto pt-4'>
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Station</TableHead>
+              <TableHead>Veðurstöð</TableHead>
               <TableHead>Jan</TableHead>
               <TableHead>Feb</TableHead>
               <TableHead>Mar</TableHead>
@@ -124,7 +139,7 @@ export default async function StationsHome() {
               <TableHead>Oct</TableHead>
               <TableHead>Nov</TableHead>
               <TableHead>Dec</TableHead>
-              <TableHead>Mean</TableHead>
+              <TableHead>Meðaltal</TableHead>
               <TableHead>RF</TableHead>
               <TableHead>TDEE</TableHead>
             </TableRow>

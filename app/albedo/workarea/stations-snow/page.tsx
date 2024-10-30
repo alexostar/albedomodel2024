@@ -49,7 +49,7 @@ export default async function MapPage() {
       </h1>
 
       <Link
-        href='/workarea/stations-snow/table'
+        href='/albedo/workarea/stations-snow/table'
         className='mb-4 text-primary font-semibold'>
         View data in table
       </Link>
@@ -68,8 +68,8 @@ export default async function MapPage() {
         for the albedo project.
       </p>
       <p className='ml-8 text-sm italic lg:ml-0'>
-        Grænt: TDEE lægra en 190 tCO2/ha, Gult: 190-290, Rautt: TDEE hærra en
-        290 tCO2/ha
+        Grænt: TDEE lægra en 180 tCO2/ha, Gult: 180-260, Rautt: TDEE hærra en
+        260 tCO2/ha
       </p>
     </div>
   );

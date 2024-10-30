@@ -12,17 +12,6 @@ import { Skogarkolefni } from '@/types/collection';
 export const revalidate = 1800; // 30 minutes
 
 export default async function MapPage() {
-  /*
-  const Map = useMemo(
-    () =>
-      dynamic(() => import('./_components/map'), {
-        loading: () => <p>The map is loading</p>,
-        ssr: false,
-      }),
-    []
-  );
-  */
-
   const Map = dynamic(() => import('./_components/map'), {
     loading: () => <p>The map is loading</p>,
     ssr: false,

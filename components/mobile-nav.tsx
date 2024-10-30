@@ -38,30 +38,67 @@ export function MobileNav() {
           <div className='flex items-center justify-between mt-4'>
             <p className='font-semibold'>Kolefnisrækt og endurskin</p>
           </div>
+
           <div className='flex items-center justify-between pl-2'>
             <MobileLink
               onOpenChange={setOpen}
-              href='/workarea/stations-rawdata'>
-              Veðurstöðvar og snjóþungi (Grunngögn)
-            </MobileLink>
-          </div>
-          <div className='flex items-center justify-between pl-2'>
-            <MobileLink onOpenChange={setOpen} href='/workarea/carbon-stations'>
-              Veðurstöðvar og verkefni
-            </MobileLink>
-          </div>
-          <div className='flex items-center justify-between pl-2'>
-            <MobileLink onOpenChange={setOpen} href='/model/stations-rf-tdee'>
+              href='/albedo/model/stations-rf-tdee'>
               CO2-ígildi endurskinsbreytinga
             </MobileLink>
             <Lock className='h-4 w-4' />
           </div>
           <div className='flex items-center justify-between pl-2'>
-            <MobileLink onOpenChange={setOpen} href='/workarea/stations-snow'>
-              Veðursstödvar og snjóþungi (Kort)
+            <MobileLink
+              onOpenChange={setOpen}
+              href='/albedo/workarea/stations-snow'>
+              Veðursstödvar og CO2-ígildi (Kort)
             </MobileLink>
             <Lock className='h-4 w-4' />
           </div>
+          <div className='flex items-center justify-between mt-2 pl-2'>
+            <p className='font-semibold'>Gögn og útreikningar</p>
+          </div>
+          <div className='flex items-center justify-between pl-4'>
+            <MobileLink
+              onOpenChange={setOpen}
+              href='/blog/reiknilikan-1-geislunarthvingun'>
+              Geislunarþvingun
+            </MobileLink>
+          </div>
+          <div className='flex items-center justify-between pl-4'>
+            <MobileLink
+              onOpenChange={setOpen}
+              href='/blog/reiknilikan-2-co2igildi'>
+              CO2 ígildi endurskinsbreytinga
+            </MobileLink>
+          </div>
+          <div className='flex items-center justify-between pl-4'>
+            <MobileLink
+              onOpenChange={setOpen}
+              href='/blog/reiknilikan-3-matrix'>
+              CO2 fylki: Heimildir og útreikningar
+            </MobileLink>
+          </div>
+          <div className='flex items-center justify-between pl-4'>
+            <MobileLink onOpenChange={setOpen} href='/albedo/model/matrices'>
+              CO2 fylki: 100x100 matrix
+            </MobileLink>
+          </div>
+          <div className='flex items-center justify-between pl-4'>
+            <MobileLink
+              onOpenChange={setOpen}
+              href='/albedo/workarea/stations-rawdata'>
+              Veðurstöðvar og snjóþungi (Grunngögn)
+            </MobileLink>
+          </div>
+          <div className='flex items-center justify-between pl-4'>
+            <MobileLink
+              onOpenChange={setOpen}
+              href='/albedo/workarea/carbon-stations'>
+              Veðurstöðvar og verkefni
+            </MobileLink>
+          </div>
+
           {/*
           <div className='flex items-center justify-between pl-2'>
             <a

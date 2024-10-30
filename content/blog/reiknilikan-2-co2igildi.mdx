@@ -1,6 +1,6 @@
 ---
 title: CO2-ígildi endurskinsbreytinga
-description: Carbon-equivalent metrics for albedo changes — Part 3
+description: Carbon-equivalent metrics for albedo changes — Part 2
 date: 2024-10-26
 tags: [Albedo, Model]
 published: true
@@ -9,10 +9,7 @@ published: true
 Source:
 [Ryan M. Bright et.al. 2016: Carbon-equivalent metrics for albedo changes in land management contexts: relevance of the time dimension](https://esajournals.onlinelibrary.wiley.com/doi/10.1890/15-1597.1)
 
-Data source: [Veðurstövar og snjóþekja](https://kolefnisvaktin.natturuvinir.is/stations-rawdata).
-Gögn frá Veðurstofu Íslands (tafla "stations2" í gagnagrunni Kolefnisvaktarinnar)
-
-## CO2 equivalence: Equation 13
+CO2 equivalence (TDEE): Equation 13
 
 <img
   src='https://hlkyrtglhpmrhzudaqzu.supabase.co/storage/v1/object/public/vin2024/albedo_tdee_equation.png'
@@ -20,20 +17,18 @@ Gögn frá Veðurstofu Íslands (tafla "stations2" í gagnagrunni Kolefnisvaktar
   width='300'
 />
 
-### Documentation of code in file app/stations-tdee-calc/page.tsx
+Data source: [Veðurstövar og snjóþekja](https://kolefnisvaktin.natturuvinir.is/stations-rawdata).
+Gögn frá Veðurstofu Íslands (tafla "stations2" í gagnagrunni Kolefnisvaktarinnar)
+
+## **Code for TDEE calculations**
 
 - **tdee:** time-dependent emissions equivalent (TDEE) from albedo changes, or TDEEΔα(t).
 - **kco2:** The radiative efficiency of CO2 in the atmosphere at a given background concentration (Myhre et al. 1998; in units W·m−2·kg−1). Here and elsewhere in this study: 1.76 × 10−15 W·m−2·kg−1
 - **yco2:** the inverse of the lower triangular matrix used to solve the system of linear equations, yco2 increasing in time across row elements and decreasing in time across column elements;
 - **rf:** Vector of radiative forcing (rf) values
 
-In this example, the lower triangular matrix has already been created. See separate file for the code used to create the matrix
-
-<img
-  src='https://hlkyrtglhpmrhzudaqzu.supabase.co/storage/v1/object/public/vin2024/IRF-Joos-2013.png'
-  alt='Joos et al IRF Equation 11'
-  width='400'
-/>
+In this example, the lower triangular matrix has already been created.
+See [Documentation for creating the matrix](/blog/reiknilikan-3-matrix)
 
 ```js
 useEffect(() => {

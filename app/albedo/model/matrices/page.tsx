@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 
 import {
   Matrix,
@@ -99,11 +100,10 @@ export default function TDEECalc() {
     return (
       <>
         <h2 className='text-xl font-bold mb-3'>{title}</h2>
-        <p className='my-4'>
-          Lower triangular matrix used to solve the system of linear equations,
-          with y-CO2(t) increasing in time across row elements and decreasing in
-          time across column elements (i.e, with y-CO2(t0) on the diagonal)
-        </p>
+        <Link href='/blog/reiknilikan-3-matrix' className='text-primary my-4'>
+          Litterature sources and code
+        </Link>
+
         <Table className='mb-8'>
           <TableHeader>
             <TableRow>
@@ -138,11 +138,11 @@ export default function TDEECalc() {
 
   return (
     <div className='container mx-auto py-10'>
-      <h1 className='text-2xl font-bold mb-5'>Matrix Operations</h1>
+      <h1 className='text-2xl font-bold mb-5'>Matrix for TDEE calculations </h1>
 
       {matrix100.length > 0 && renderMatrix(matrix100, '100x100 Matrix')}
       {inverseMatrix100 &&
-        renderMatrix(inverseMatrix100, 'Inverse of 100x100 Matrix')}
+        renderMatrix(inverseMatrix100, 'Inverse of the 100x100 Matrix')}
     </div>
   );
 }

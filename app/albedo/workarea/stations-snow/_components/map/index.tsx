@@ -71,11 +71,11 @@ const Map = (Map: MapProps) => {
       />
       {places.map((place) => (
         <div key={place.id}>
-          {place.tdee_055_006 < 190 ? (
+          {place.tdee_055_006 < 180 ? (
             <Marker position={place.latlng} draggable={false} icon={greenIcon}>
               <MyMarker {...place} />
             </Marker>
-          ) : place.tdee_055_006 > 290 ? (
+          ) : place.tdee_055_006 > 260 ? (
             <Marker position={place.latlng} draggable={false} icon={redIcon}>
               <MyMarker {...place} />
             </Marker>

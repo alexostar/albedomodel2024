@@ -145,6 +145,7 @@ export default async function MapPage() {
         Snóþekjumælingar á 177 veðurstöðvum og val á veðurstöðvum fyrir hvert
         verkefni
       </h2>
+      <p className='ml-8 lg:ml-0 mb-2'>Gögn frá Veðurstofu Íslands</p>
 
       <div className='h-[800px] w-[100%]'>
         <Map

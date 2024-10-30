@@ -9,10 +9,7 @@ published: true
 Source:
 [Ryan M. Bright et.al. 2016: Carbon-equivalent metrics for albedo changes in land management contexts: relevance of the time dimension](https://esajournals.onlinelibrary.wiley.com/doi/10.1890/15-1597.1)
 
-Data source: [Veðurstövar og snjóþekja](https://kolefnisvaktin.natturuvinir.is/stations-rawdata).
-Gögn frá Veðurstofu Íslands (tafla "stations2" í gagnagrunni Kolefnisvaktinnar)
-
-## Radiative forcing from albedo changes: Equation 6
+Radiative forcing from albedo changes: Equation 6
 
 <img
   src='https://hlkyrtglhpmrhzudaqzu.supabase.co/storage/v1/object/public/vin2024/albedo_rf_equation.png'
@@ -20,7 +17,10 @@ Gögn frá Veðurstofu Íslands (tafla "stations2" í gagnagrunni Kolefnisvaktin
   width='300'
 />
 
-### Documentation of code in file app/stations-rf-calc/page.tsx
+Data source: [Veðurstövar og snjóþekja](https://kolefnisvaktin.natturuvinir.is/stations-rawdata).
+Gögn frá Veðurstofu Íslands (tafla "stations2" í gagnagrunni Kolefnisvaktinnar)
+
+### **Code for calculating Radiative forcing (RF) at the Top Of the Athmosphere (TOA)**
 
 - **rf:** The annual mean radiative forcing at (annual) time step t (in W/m2)
 - **rsw:** Climatological (1983–2007) monthly mean solar radiation incident on a topographically corrected tilted surface in monthly time step m (in W/m2).

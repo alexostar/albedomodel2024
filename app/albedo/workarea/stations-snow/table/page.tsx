@@ -21,8 +21,11 @@ export default async function MapPage() {
       <h1 className='text-2xl font-bold mb-2 text-center'>
         Veðurstöðvar, snjóþekja og CO2 ígildi endurskinsbreytinga (TDEE)
       </h1>
-      <p className='font-semibold'>
+      <p className='font-semibold text-center'>
         Snjóþekja: Meðaltal allra mánuða og ára fyrir hverja stöð
+      </p>
+      <p className='font-semibold text-center'>
+        CO2 ígildi (TDEE): Tonn CO2i /ha
       </p>
       <div className='flex flex-col mx-auto pt-8'>
         <div className='text-sm overflow-x-auto max-w-3xl'>

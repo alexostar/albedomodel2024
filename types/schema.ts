@@ -230,7 +230,6 @@ export type Database = {
         };
         Relationships: [];
       };
-
       images: {
         Row: {
           auto_id: number;
@@ -276,7 +275,6 @@ export type Database = {
         };
         Relationships: [];
       };
-
       skogarkolefni: {
         Row: {
           capture: number | null;

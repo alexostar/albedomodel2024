@@ -1,12 +1,16 @@
 ---
-title: Fylki (matrix) CO2 brotthvarfs úr andrúmslofti
-description: Carbon-equivalent metrics for albedo changes — Part 2
+title: Fylki (matrix) fyrir brotthvarf CO2 úr andrúmslofti
+description: Carbon-equivalent metrics for albedo changes — Part 3
 date: 2024-10-27
 tags: [Albedo, Model]
 published: true
 ---
 
-## Next.js code for creating the IRF matrix
+## **Heimildir**:
+
+[Joos et al. (2013) Carbondioxide and climate impulse response functions for the computation of greenhousegas metrics: a multi-model analysis](https://acp.copernicus.org/articles/13/2793/2013/acp-13-2793-2013.pdf)
+
+Equation 11:
 
 <img
   src='https://hlkyrtglhpmrhzudaqzu.supabase.co/storage/v1/object/public/vin2024/IRF-Joos-2013.png'
@@ -14,14 +18,32 @@ published: true
   width='400'
 />
 
+[Richard J. Millar et al. (2018) A modified impulse-response representation of the global near-surface air temperature and atmospheric concentration response to carbon dioxide emissions](https://acp.copernicus.org/articles/17/7213/2017/acp-17-7213-2017.pdf)
+
+Table 1:
+
+<img
+  src='https://hlkyrtglhpmrhzudaqzu.supabase.co/storage/v1/object/public/vin2024/albedo-Millar-IRF-2018.png'
+  alt='Millar 2018 Table 1'
+  width='400'
+/>
+
+[Ryan M. Bright et.al. 2016: Carbon-equivalent metrics for albedo changes in land management contexts: relevance of the time dimension](https://esajournals.onlinelibrary.wiley.com/doi/10.1890/15-1597.1)
+
+Lower triangular matrix used to solve the system of linear equations, with yCO2(t) increasing in time across row elements and decreasing in time across column elementsimg, see
+
+<img
+  src='https://hlkyrtglhpmrhzudaqzu.supabase.co/storage/v1/object/public/vin2024/albedo-Bright-2016-equation-12.png'
+  alt='Bright 2016 equation 12'
+  width='400'
+/>
+
+## **Code to create the IRF matrix**
+
 ```js
 export default function CreateMatrix() {
   // Initate an empty matrix
   const [largeMatrix, setLargeMatrix] = useState<number[][]>([]);
-
-  // Setting the parameters for the Impulse Response Function (IRF CO2) as defined by Joos et al. (2013):
-  // Carbondioxideandclimateimpulseresponsefunctionsforthe computationofgreenhousegasmetrics:amulti-modelanalysis
-  // https://acp.copernicus.org/articles/13/2793/2013/acp-13-2793-2013.pdf
 
   const a0 = 0.2173;
   const a1 = 0.224;

@@ -13,7 +13,7 @@ export type Stations2 = Database['public']['Tables']['stations2']['Row'];
 export type Stodvartj = Database['public']['Tables']['stodvartj']['Row'];
 
 export type ImageTypes = Database['public']['Tables']['images']['Row'];
-// Used for the Photos page (Example of a page behind a login)
+// Used for the Photos page (Example of a page behind credentials)
 
 // For makinging the type global:
 // See for example https://blog.logrocket.com/using-next-js-with-typescript/

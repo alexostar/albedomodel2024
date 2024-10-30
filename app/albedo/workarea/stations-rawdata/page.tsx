@@ -28,6 +28,7 @@ export default async function StationsHome() {
       <h2 className='text-xl font-bold mb-2 text-center'>
         Hrágögn: Veðurstöðvar og snjóþekja (%)
       </h2>
+      <p className='ml-8 lg:ml-0'>Gögn frá Veðurstofu Íslands</p>
 
       <div className='overflow-x-auto pt-4'>
         <Table>
