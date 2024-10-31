@@ -26,7 +26,7 @@ export default async function StationsHome() {
         Kolefnisrækt og endurskin
       </h1>
       <h2 className='text-xl font-bold mb-2 text-center'>
-        Hrágögn: Veðurstöðvar og snjóþekja (%)
+        Grunngögn: Veðurstöðvar og snjóþekja (%)
       </h2>
       <p className='ml-8 lg:ml-0'>Gögn frá Veðurstofu Íslands</p>
 

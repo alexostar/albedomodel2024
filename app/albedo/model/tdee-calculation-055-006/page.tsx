@@ -67,7 +67,11 @@ export default function TDEECalc() {
         const tdeetonhasum = (Number(tdeekgm2sum) * 10000) / 1000;
 
         console.log('tdee-ton-ha-sum: ', tdeetonhasum.toFixed(1));
-        // THE OUTCOME IS 19,9
+        /* The outcome for tdde-ton-ha-sum is 19,9 when averageAlbedoTimesRsw is 1 W/m2 
+        Hence the TDEE for each station can be can be calcuated (for the 0.55/0.06 scenario):
+        19.9 times Average of monthly albedo changes times Rsw
+        See the /stations-rf-tdee file: "const tdee = averageAlbedoTimesRsw * 19.9";
+        */
       } catch (error) {
         console.error('Error loading or processing matrix:', error);
       }

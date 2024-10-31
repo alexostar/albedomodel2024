@@ -16,14 +16,15 @@ Deploying kolefnisvaktin:v17 2024-10-20 - Last changes before going public
 Deploying kolefnisvaktin:v18 2024-10-21 - Google analytics added
 
 CarbonGames-02
-Deploying kolefnisvaktin:v19 2024-10-29 - Moving to carbongames-02
+Deploying kolefnisvaktin:v19 2024-10-30 - Moving to carbongames-02 - First deployment
+Deploying kolefnisvaktin:v20 2024-10-31 - Correction of first deployment
 
 ```bash
 
 
-docker build . --platform linux/amd64  -t ghcr.io/alexostar/kolefnisvaktin:v19
+docker build . --platform linux/amd64  -t ghcr.io/alexostar/kolefnisvaktin:v20
 docker login ghcr.io
-docker push ghcr.io/alexostar/kolefnisvaktin:v19
+docker push ghcr.io/alexostar/kolefnisvaktin:v20
 ```
 
 Stop the existing container in pt.casabrava.se
@@ -35,7 +36,7 @@ For IP address, see the dashboard in the cloudpanel (cp.casabrava.se)
 
 ```bash
 docker login ghcr.io
-docker run -p 3900:3000 -d ghcr.io/alexostar/kolefnisvaktin:v19
+docker run -p 3900:3000 -d ghcr.io/alexostar/kolefnisvaktin:v20
 
 ```
 

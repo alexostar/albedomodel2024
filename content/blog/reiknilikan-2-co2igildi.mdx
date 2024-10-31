@@ -17,8 +17,8 @@ CO2 equivalence (TDEE): Equation 13
   width='300'
 />
 
-Data source: [Veðurstövar og snjóþekja](https://kolefnisvaktin.natturuvinir.is/stations-rawdata).
-Gögn frá Veðurstofu Íslands (tafla "stations2" í gagnagrunni Kolefnisvaktarinnar)
+Data source: [Veðurstövar og snjóþekja](/albedo/workarea/stations-rawdata).
+Gögn frá Veðurstofu Íslands (tafla _stations2_)
 
 ## **Code for TDEE calculations**
 
@@ -31,6 +31,7 @@ In this example, the lower triangular matrix has already been created.
 See [Documentation for creating the matrix](/blog/reiknilikan-3-matrix)
 
 ```js
+// File /albedo/model/tdee-calculation-055-006
 useEffect(() => {
   async function loadMatrix() {
     try {
@@ -66,7 +67,11 @@ useEffect(() => {
       const tdeetonhasum = (Number(tdeekgm2sum) * 10000) / 1000;
 
       console.log('tdee-ton-ha-sum: ', tdeetonhasum.toFixed(1));
-      // THE OUTCOME IS 19,9
+      /* The outcome for tdde-ton-ha-sum is 19,9 when averageAlbedoTimesRsw is 1 W/m2 
+        Hence the TDEE for each station can be can be calcuated (for the 0.55/0.06 scenario)
+        19.9 times Average of monthly albedo changes times Rsw
+        See the /stations-rf-tdee file: "const tdee = averageAlbedoTimesRsw * 19.9";
+        */
     } catch (error) {
       console.error('Error loading or processing matrix:', error);
     }
