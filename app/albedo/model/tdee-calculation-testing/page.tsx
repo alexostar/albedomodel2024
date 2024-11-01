@@ -24,12 +24,14 @@ import {
 export default function TDEECalc() {
   // Equation 6 in Bright et al 2016 for "averageAlbedoTimesRsw" = 1 W/m2
 
-  const averageAlbedoTimesRsw = 1;
+  //const averageAlbedoTimesRsw = 1;
+  const averageAlbedoTimesRsw = 18.37; // Skeiðsfoss
   const tsw = 0.854;
   const earthm2 = 5.1e14;
   const rf = (averageAlbedoTimesRsw * tsw) / earthm2; // Equation 6
   console.log('RF: ', rf);
-  // The outcome is RF = 1.6745098039215687e-15
+  // The rf outcome for averageAlbedoTimesRsw 1 = 1.6745098039215687e-15
+  // The rf outcome for averageAlbedoTimesRsw 18.37 (Skeiðsfoss) = 3.076074509803922e-14
 
   const [matrix100, setMatrix100] = useState<number[][]>([]);
   const [inverseMatrix100, setInverseMatrix100] = useState<Matrix | null>(null);
@@ -52,7 +54,8 @@ export default function TDEECalc() {
         // Create the RF-delta-alfa array, with first 25 elements as 0 and remaining 75 as 0.00000000000000167
         const rfVector = [
           ...Array(25).fill(0),
-          ...Array(75).fill(1.6745098039215687e-15), // The RF value for averageAlbedoTimesRsw = 1 W/m2
+          //...Array(75).fill(1.6745098039215687e-15), // The RF value for averageAlbedoTimesRsw = 1 W/m2
+          ...Array(75).fill(3.076074509803922e-14), // The RF value for averageAlbedoTimesRsw = 18.37 W/m2 (Skeiðsfoss)
         ];
 
         // Multiply the inverse matrix with the rfAlbedoVector
@@ -74,6 +77,7 @@ export default function TDEECalc() {
         19.9 times Average of monthly albedo changes times Rsw
         See the /stations-rf-tdee file: "const tdee = averageAlbedoTimesRsw * 19.9";
         */
+        // The valus for Skeiðsfoss = 366
       } catch (error) {
         console.error('Error loading or processing matrix:', error);
       }

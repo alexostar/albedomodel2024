@@ -1,5 +1,5 @@
-import { createCookiesClient } from '@/supabase/clients/server';
-import { redirect } from 'next/navigation';
+//import { createCookiesClient } from '@/supabase/clients/server';
+//import { redirect } from 'next/navigation';
 
 import Link from 'next/link';
 
@@ -22,12 +22,16 @@ export default async function MapPage() {
     []
   );
 
+  {
+    /*
   const supabasecookies = createCookiesClient();
   const {
     data: { user },
   } = await supabasecookies.auth.getUser();
   if (!user) {
     return redirect('/login');
+  }
+*/
   }
 
   const supabase = createClient();

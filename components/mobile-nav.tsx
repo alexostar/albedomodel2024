@@ -45,7 +45,7 @@ export function MobileNav() {
               href='/albedo/model/stations-rf-tdee'>
               CO2-ígildi endurskinsbreytinga
             </MobileLink>
-            <Lock className='h-4 w-4' />
+            {/*<Lock className='h-4 w-4' />*/}
           </div>
           <div className='flex items-center justify-between pl-2'>
             <MobileLink
@@ -53,7 +53,7 @@ export function MobileNav() {
               href='/albedo/workarea/stations-snow'>
               Veðursstödvar og CO2-ígildi (Kort)
             </MobileLink>
-            <Lock className='h-4 w-4' />
+            {/*<Lock className='h-4 w-4' />*/}
           </div>
           <div className='flex items-center justify-between mt-2 pl-2'>
             <p className='font-semibold'>Gögn og útreikningar</p>
