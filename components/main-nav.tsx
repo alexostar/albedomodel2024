@@ -12,7 +12,7 @@ export function MainNav() {
     <nav className='flex items-center space-x-4 lg:space-x-6'>
       <Link href='/' className='mr-6 font-bold tracking-widest'>
         <p className='text-primary'>
-          KOLEFNIS<span className='text-foreground'>VAKTIN</span>
+          Skógrækt <span className='text-foreground'>og endurskin</span>
         </p>
       </Link>
       <Link

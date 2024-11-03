@@ -25,7 +25,8 @@ export function SiteFooter() {
           href={siteConfig.links.personalSite}
           target='_blank'
           className='mb-2 text-sm text-muted-foreground'>
-          &copy; {new Date().getFullYear()} Vinir íslenskrar náttúru
+          &copy; {new Date().getFullYear()} Ólafur S. Andrésson og Sigfús
+          Bjarnason
         </a>
         <p className='text-sm text-muted-foreground'>
           This site is under development

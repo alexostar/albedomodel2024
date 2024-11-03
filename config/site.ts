@@ -1,7 +1,7 @@
 export const siteConfig = {
-  name: 'Kolefnisvaktin',
-  url: 'https://kolefnisvaktin.natturuvinir.is',
-  description: 'Yfirlit yfir íslenska kolefnisrækt',
+  name: 'Skógrækt og endurskin',
+  url: 'https://albedo.casabrava.se',
+  description: 'Skógrækt og endurskin',
   author: 'Sigfús Bjarnason',
   links: {
     twitter: 'https://twitter.com/jollyshopland',

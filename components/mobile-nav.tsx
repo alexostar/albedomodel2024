@@ -29,39 +29,14 @@ export function MobileNav() {
           {/*<Icons.logo className='mr-2 h-4 w-4' />*/}
           <span className='font-bold'>{siteConfig.name}</span>
         </MobileLink>
+        <div className='flex items-center justify-between pt-4 pl-2'>
+          <MobileLink onOpenChange={setOpen} href='/blog/heimildir'>
+            Heimildir
+          </MobileLink>
+        </div>
         <div className='flex flex-col gap-3'>
-          <div className='flex items-center justify-between mt-4 pl-2'>
-            <MobileLink onOpenChange={setOpen} href='/'>
-              Heim
-            </MobileLink>
-          </div>
-          <div className='flex items-center justify-between mt-4'>
-            <p className='font-semibold'>Kolefnisrækt og endurskin</p>
-          </div>
-
-          <div className='flex items-center justify-between pl-2'>
-            <MobileLink
-              onOpenChange={setOpen}
-              href='/albedo/model/stations-rf-tdee'>
-              CO2-ígildi endurskinsbreytinga
-            </MobileLink>
-            {/*<Lock className='h-4 w-4' />*/}
-          </div>
-          <div className='flex items-center justify-between pl-2'>
-            <MobileLink
-              onOpenChange={setOpen}
-              href='/albedo/workarea/stations-snow'>
-              Veðursstödvar og CO2-ígildi (Kort)
-            </MobileLink>
-            {/*<Lock className='h-4 w-4' />*/}
-          </div>
-          <div className='flex items-center justify-between mt-2 pl-2'>
-            <p className='font-semibold'>Gögn og útreikningar</p>
-          </div>
-          <div className='flex items-center justify-between pl-4'>
-            <MobileLink onOpenChange={setOpen} href='/blog/heimildir'>
-              Heimildir
-            </MobileLink>
+          <div className='flex items-center justify-between mt-4 pl-2 text-gray-500'>
+            <p className=''>Útreikningar</p>
           </div>
           <div className='flex items-center justify-between pl-4'>
             <MobileLink
@@ -74,19 +49,22 @@ export function MobileNav() {
             <MobileLink
               onOpenChange={setOpen}
               href='/blog/reiknilikan-2-co2igildi'>
-              CO2 ígildi endurskinsbreytinga
+              CO<sub>2</sub> ígildi endurskinsbreytinga
             </MobileLink>
           </div>
           <div className='flex items-center justify-between pl-4'>
             <MobileLink
               onOpenChange={setOpen}
               href='/blog/reiknilikan-3-matrix'>
-              CO2 fylki: Útreikningar
+              Fylki CO<sub>2</sub> brotthvarfs
             </MobileLink>
+          </div>
+          <div className='flex items-center justify-between mt-4 pl-2 text-gray-500'>
+            <p className=''>Gögn</p>
           </div>
           <div className='flex items-center justify-between pl-4'>
             <MobileLink onOpenChange={setOpen} href='/albedo/model/matrices'>
-              CO2 fylki: 100x100 matrix
+              100x100 CO<sub>2</sub> fylki
             </MobileLink>
           </div>
           <div className='flex items-center justify-between pl-4'>
@@ -100,8 +78,16 @@ export function MobileNav() {
             <MobileLink
               onOpenChange={setOpen}
               href='/albedo/workarea/carbon-stations'>
-              Veðurstöðvar og verkefni
+              Veðurstöðvar og kolefnisræktarverkefni
             </MobileLink>
+          </div>
+          <div className='flex items-center justify-between pl-4'>
+            <MobileLink
+              onOpenChange={setOpen}
+              href='/albedo/model/stations-rf-tdee'>
+              Tafla: RF og TDEE
+            </MobileLink>
+            {/*<Lock className='h-4 w-4' />*/}
           </div>
 
           {/*
