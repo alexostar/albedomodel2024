@@ -59,6 +59,11 @@ export function MobileNav() {
             <p className='font-semibold'>Gögn og útreikningar</p>
           </div>
           <div className='flex items-center justify-between pl-4'>
+            <MobileLink onOpenChange={setOpen} href='/blog/heimildir'>
+              Heimildir
+            </MobileLink>
+          </div>
+          <div className='flex items-center justify-between pl-4'>
             <MobileLink
               onOpenChange={setOpen}
               href='/blog/reiknilikan-1-geislunarthvingun'>
@@ -76,7 +81,7 @@ export function MobileNav() {
             <MobileLink
               onOpenChange={setOpen}
               href='/blog/reiknilikan-3-matrix'>
-              CO2 fylki: Heimildir og útreikningar
+              CO2 fylki: Útreikningar
             </MobileLink>
           </div>
           <div className='flex items-center justify-between pl-4'>
