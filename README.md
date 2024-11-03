@@ -1,4 +1,4 @@
-## Kolefnisvaktin
+## Albedovaktin
 
 ### Original heading: NextJS 14, Tailwind, Shadcn UI, MDX and Velite Blog Template
 
