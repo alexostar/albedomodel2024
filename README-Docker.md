@@ -15,7 +15,7 @@ Then login to the VPS
 
 ```bash
 docker login ghcr.io
-docker run -p 3500:3500 -d ghcr.io/alexostar/albedovaktin:v01
+docker run -p 3500:3000 -d ghcr.io/alexostar/albedovaktin:v01
 
 ```
 
