@@ -22,12 +22,9 @@ export default async function StationsHome() {
 
   return (
     <div className='container mx-auto py-10 max-w-7xl'>
-      <h1 className='text-2xl font-bold mb-2 text-center'>
-        Kolefnisrækt og endurskin
-      </h1>
-      <h2 className='text-xl font-bold mb-2 text-center'>
+      <h1 className='text-2xl font-bold mb-4 text-center'>
         Grunngögn: Veðurstöðvar og snjóþekja (%)
-      </h2>
+      </h1>
       <p className='ml-8 lg:ml-0'>Gögn frá Veðurstofu Íslands</p>
 
       <div className='overflow-x-auto pt-4'>

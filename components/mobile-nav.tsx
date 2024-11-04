@@ -71,7 +71,7 @@ export function MobileNav() {
             <MobileLink
               onOpenChange={setOpen}
               href='/albedo/workarea/stations-rawdata'>
-              Veðurstöðvar og snjóþungi (Grunngögn)
+              Veðurstöðvar og snjóþekja (Grunngögn)
             </MobileLink>
           </div>
           <div className='flex items-center justify-between pl-4'>

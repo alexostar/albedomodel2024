@@ -2,12 +2,13 @@
 
 AlbedoGames-01
 Deploying albedovaktin:v01 2024-11-03 - First deployment
+Deploying albedovaktin:v02 2024-11-04 - Second deployment
 
 ```bash
 
-docker build . --platform linux/amd64  -t ghcr.io/alexostar/albedovaktin:v01
+docker build . --platform linux/amd64  -t ghcr.io/alexostar/albedovaktin:v02
 docker login ghcr.io
-docker push ghcr.io/alexostar/albedovaktin:v01
+docker push ghcr.io/alexostar/albedovaktin:v02
 ```
 
 Stop the existing container in pt.casabrava.se
@@ -15,7 +16,7 @@ Then login to the VPS
 
 ```bash
 docker login ghcr.io
-docker run -p 3500:3000 -d ghcr.io/alexostar/albedovaktin:v01
+docker run -p 3500:3000 -d ghcr.io/alexostar/albedovaktin:v02
 
 ```
 
